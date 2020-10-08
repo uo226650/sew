@@ -1,0 +1,40 @@
+body { 
+    display: grid;
+    grid: "h h"
+          "a b"
+          "f f";
+    grid-template-columns: auto 1fr;/* auto;*/
+    grid-template-rows: auto 1fr auto; 
+}
+body > header { 
+    grid-area: h;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+main, article { 
+    grid-area: b; 
+    min-width: 12em;     
+}
+nav { 
+    grid-area: a; /* auto min-width */
+    display: flex;
+    flex-direction: column; 
+    padding: 30px;
+}
+
+nav a {
+    margin: 5px;
+}
+footer{ 
+    grid-area: f; /* auto min-width */ 
+    display: flex;
+    justify-content: center;
+}
+
+/*aside   { grid-area: c; min-width: 12em;     }*/
+
+@media all and (max-width: 60em) {
+    /* Too narrow to support three columns */
+    main { display: block; }
+  }
